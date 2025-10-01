@@ -2,13 +2,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const corsOptions = {
+  origin: 'https://flower-biller-frontend.vercel.app' // Your Vercel URL
+};
 require('dotenv').config(); // This line loads the .env file
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors()); // Enable CORS for all routes
+app.use(cors(corsOptions));
 app.use(express.json()); // Allow the server to accept JSON data
 
 // Connect to MongoDB
